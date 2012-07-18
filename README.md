@@ -5,16 +5,21 @@ A script for Mac OSX that allows you to download your photos from 365project.org
 
 Requires: a little understanding of the OS X terminal application!
 
-To run this script download/check it out into a directory on your Mac then find it in terminal. 
+How to install and run
+----------------------
 
-You need to make it executable, so run this command to do that:
-- chmod 755 365download.sh
+- Goto the Applications/Utilities folder and run the Terminal application.
+- Type the following command to download the files:
+  - git clone https://github.com/twocups/365downloader.git
+- And to run the script run these commands:
+  - cd 365downloader
+  - ./365download.sh
+- And now follow the prompts to run the downloader/
 
-To run the script simply run this command:
-- ./365download.sh
 
-Pro Users
----------
+
+Pro Users - Original photos
+---------------------------
 
 For Pro users you can download the original hi-res images if you provide the authentication cookie.
 
