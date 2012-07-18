@@ -8,10 +8,10 @@ Requires: a little understanding of the OS X terminal application!
 To run this script download/check it out into a directory on your Mac then find it in terminal. 
 
 You need to make it executable, so run this command to do that:
-chmod 755 365download.sh
+- chmod 755 365download.sh
 
 To run the script simply run this command:
-./365download.sh
+- ./365download.sh
 
 Pro Users
 ---------
