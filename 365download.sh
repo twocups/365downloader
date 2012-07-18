@@ -5,26 +5,8 @@
 # A shell script for downloading your images from 365 project
 # (For Mac OSX)
 #
-# To run this script download it to a directory on your Mac then find it in terminal. 
-# You need to make it executable, so run this command:
-# 
-# chmod 755 365download.sh
+# See the readme file for more info!
 #
-# To run the script simply run this command:
-# ./365download.sh
-#
-#
-# For Pro users you can download the orginal hi-res images if you provide the authentication cookie.
-#
-# To do this:
-# 	- log into 365project.org with Chrome web browser, then right click any where and choose'Inspect Element'
-# 	- Click the resources tab in the window that appears
-#	- Click "Cookies" in the tree on the left and select "365project.org"
-#	- This will list the cookies, find the one caaled 'auth' and copy its value to clipboard
-#	- At the right place in the script paste that value in
-#
-#
-# No warranites with this script - use at your own risk! It was mainly build for my own purposes!
 # -  @twocups July 2012
 
 
@@ -53,6 +35,7 @@ read day
 echo -n "Number of days to download (up to 366): "
 read numdays
 
+cookie=""
 echo -n "Auth cookie value (for pro user originals, leave blank if you dont understand!):"
 read cookie
 
@@ -107,7 +90,7 @@ while [ $current_iteration -lt $numdays ]; do
 		#Use the image id to get the sizes		
 		sizes_url="http://365project.org/media/show_sizes/${image_id}"
 		image_size="large"
-		if [ $cookie == "" ]; then
+		if [ -z "${cookie}"  ]; then
 			#standrd large images
 			image_path=$(curl -s "${sizes_url}" | grep -o -E "${image_id}_([^_]+)_l.jpg" | uniq)
 		else
