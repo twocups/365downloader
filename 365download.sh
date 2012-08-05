@@ -92,11 +92,11 @@ while [ $current_iteration -lt $numdays ]; do
 		image_size="large"
 		if [ -z "${cookie}"  ]; then
 			#standrd large images
-			image_path=$(curl -s "${sizes_url}" | grep -o -E "${image_id}_([^_]+)_l.jpg" | uniq)
+			image_path=$(curl -s -e "http://365project.org" "${sizes_url}" | grep -o -E "${image_id}_([^_]+)_l.jpg" | uniq)
 		else
 			#original size images
 			image_size="orginal"
-			image_path=$(curl -s -b "auth=${cookie}" "${sizes_url}" | grep -o -E "${image_id}_([^_]+)_o.jpg" | uniq)
+			image_path=$(curl -s -e "http://365project.org" -b "auth=${cookie}" "${sizes_url}" | grep -o -E "${image_id}_([^_]+)_o.jpg" | uniq)
 		fi
 		full_image_path="http://media.365project.org/1/${image_path}"
 		printf "\n\tDownloading %s image: %s" $image_size $full_image_path
