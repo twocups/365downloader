@@ -35,3 +35,17 @@ No warranties with this script - use at your own risk! It was mainly built for m
 
 My 365 handle: @twocups
 
+
+Linux Update
+------------
+Heres some changes you might want to make to get it to work on linux not os x. Thanks to Andrew Phelps
+
+Line Number – What the line should now say:
+
+46 – startdate=$(date -d”${day}/${month}/${year}” “+%d/%m/%Y”)
+47 – enddate=$(date -d”${day}/${month}/${year} +${numdays} days” “+%d/%m/%Y”)
+
+73 – current_date=$(date -d”${day}/${month}/${year} +${current_iteration} days” “+%d/%m/%Y”)
+74 – current_date_365=$(date -d”${day}/${month}/${year} +${current_iteration} days” “+%d-%m-%Y”)
+
+
